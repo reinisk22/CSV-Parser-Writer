@@ -11,11 +11,8 @@ class Writer
         $this->reader = $reader;
     }
 
-    public function save($filename)
+    public function save(string $filename): void
     {
-        $this->reader->readHeaders();
-        $this->reader->readData();
-
         $fp = fopen($filename, 'w');
         fputcsv($fp, $this->reader->getHeaders());
         foreach ($this->reader->getData() as $row) {

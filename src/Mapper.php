@@ -11,7 +11,7 @@ class Mapper
         $this->reader = $reader;
     }
 
-    public function map($n, $data): array
+    public function map(int $n, array $data): array
     {
         $inputColumns = $this->reader->getOriginalHeaders()[$n];
 

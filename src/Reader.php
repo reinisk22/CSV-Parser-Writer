@@ -19,22 +19,12 @@ class Reader
         $this->filePaths[] = $filePath;
     }
 
-    public function getHeaders(): array
-    {
-        return $this->headers;
-    }
-
     public function getOriginalHeaders(): array
     {
         return $this->originalHeaders;
     }
 
-    public function getData(): array
-    {
-        return $this->data;
-    }
-
-    public function readHeaders(): void
+    public function getHeaders(): array
     {
         foreach ($this->filePaths as $filePath) {
             $fp = fopen($filePath, 'r');
@@ -51,9 +41,10 @@ class Reader
             // Reset the index values of the combined header array
             $this->headers = array_values($mergedHeaders);
         }
+        return $this->headers;
     }
 
-    public function readData()
+    public function getData(): array
     {
         // Index of the file being processed
         foreach ($this->filePaths as $i => $filePath) {
@@ -64,5 +55,6 @@ class Reader
             // Get the mapped data
             $this->data = array_merge($this->data, $this->mapper->map($i, $data));
         }
+        return $this->data;
     }
 }
