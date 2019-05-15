@@ -4,6 +4,9 @@ namespace CSVParser;
 
 class Writer
 {
+    /**
+     * @var Reader
+     */
     private $reader;
 
     public function __construct(Reader $reader)
