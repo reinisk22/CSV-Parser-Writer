@@ -28,12 +28,12 @@ $reader->add('Your/File/Path.csv');
 $reader->add('Your/File/Path.csv');
 ```
 
-To chose where to save the file, use save() method below add() methods in demo/index.php folder. This method will overwrite everything in an existing csv file or attempt to create a new file if there is no CSV file with the specified name in the path you specify.
+To chose where to save the file, use save() method below add() methods in demo/index.php. This method will overwrite everything in an existing csv file or attempt to create a new file if there is no CSV file with the specified name in the path you specify.
 
 Example usage:
 
 ```php
-$writer->save('Path/Where/To/Save/FileName.csv');
+$writer->save('Path/Where/To/Save/Your/FileName.csv');
 ```
 
 ## License
