@@ -1,0 +1,9 @@
+{
+    "name": "csv_parser",
+    "description": "",
+    "autoload": {
+        "psr-4": {
+            "CSVParser\\": "src/"
+        }
+    }
+}
