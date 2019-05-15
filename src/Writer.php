@@ -2,13 +2,23 @@
 
 namespace CSVParser;
 
-class Writer extends Reader
+class Writer
 {
-    public function writeCSV($filename)
+    private $reader;
+
+    public function __construct(Reader $reader)
     {
+        $this->reader = $reader;
+    }
+
+    public function save($filename)
+    {
+        $this->reader->readHeaders();
+        $this->reader->readData();
+
         $fp = fopen($filename, 'w');
-        fputcsv($fp, $this->headers);
-        foreach ($this->data as $row) {
+        fputcsv($fp, $this->reader->getHeaders());
+        foreach ($this->reader->getData() as $row) {
             fputcsv($fp, $row);
         }
         fclose($fp);

@@ -2,12 +2,13 @@
 
 require_once '../vendor/autoload.php';
 
+use CSVParser\Reader;
 use CSVParser\Writer;
 
-$writer = new Writer;
+$reader = new Reader;
 
-$writer->add('CSVFiles/sample1.csv');
-$writer->add('CSVFiles/sample2.csv');
-$writer->getHeaders();
-$writer->getData();
-$writer->writeCSV('CSVFiles/newsample.csv');
+$reader->add('CSVFiles/sample1.csv');
+$reader->add('CSVFiles/sample2.csv');
+
+$writer = new Writer($reader);
+$writer->save('CSVFiles/newsample.csv');
