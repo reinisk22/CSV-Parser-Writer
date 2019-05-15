@@ -4,6 +4,9 @@ namespace CSVParser;
 
 class Mapper
 {
+    /**
+     * @var Reader
+     */
     private $reader;
 
     public function __construct(Reader $reader)

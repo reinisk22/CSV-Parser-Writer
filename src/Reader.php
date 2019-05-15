@@ -4,16 +4,36 @@ namespace CSVParser;
 
 class Reader
 {
+    /**
+     * @var array
+     */
     private $filePaths = [];
+
+    /**
+     * @var array
+     */
     private $headers = [];
+
+    /**
+     * @var array
+     */
     private $data = [];
+
+    /**
+     * @var array
+     */
     private $originalHeaders = [];
+
+    /**
+     * @var Mapper
+     */
     private $mapper;
 
     public function __construct()
     {
         $this->mapper = new Mapper($this);
     }
+
     public function add(string $filePath): void
     {
         $this->filePaths[] = $filePath;
