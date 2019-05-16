@@ -66,7 +66,6 @@ class Reader
 
     public function getData(): array
     {
-        // Index of the file being processed
         foreach ($this->filePaths as $i => $filePath) {
             $data = array_map('str_getcsv', file($filePath));
 
